@@ -9,25 +9,24 @@
         <div class="col-sm-4">
             <img src="~/Content/images/admin.png" width="200" height="150" />
             <br>
-            <input type="radio" id="admin" name="option" value="Admin">Admin <br />
+            <input type="radio" name="option" value="Admin">Admin <br />
         </div>
         <div class="col-sm-4">
             <img src="~/Content/images/customer.jpg" width="200" height="150" />
             <br>
-            <input type="radio" id="customer" name="option" value="Customer">Customer <br />
+            <input type="radio" name="option" value="Customer">Customer <br />
         </div>
         <div class="col-sm-4">
             <img src="~/Content/images/employee.jpg" width="200" height="150" />
             <br>
-            <input type="radio" id="employee" name="option" value="Employee">Employee
+            <input type="radio" name="option" value="Employee">Employee
         </div>
     </div>
     <div class="row">
         <br />
         <br />
-          <div style="text-align: center;">
-                <input type="submit" class="btn btn-success" />
-          </div>
+        <div style="text-align: center;">
+            <input type="submit" class="btn btn-success" value="Continue" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");" />        </div>
     </div>
 </div>    
     

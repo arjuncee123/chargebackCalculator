@@ -1,0 +1,68 @@
+﻿@model ChargeBackproject.Models.UserDetails
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="jumbotron form-group">
+    <h2 class="registerheading" style="color: black;font-size:40px;font-family: 'Times New Roman';">Register</h2>
+    @using (Html.BeginForm("SaveRegisteration", "Account"))
+    {
+        @Html.AntiForgeryToken()
+        <div style="color:red;">@Html.ValidationSummary()</div>
+        <div class="row">
+            <!--Show details are saved successfully message-->
+            <div class="col-lg-12">@ViewBag.Message</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.FirstName)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.FirstName, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.LastName)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.LastName, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.DateOfBirth)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.DateOfBirth, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.Gender)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.Gender, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.ContactNumber)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.ContactNumber, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.Address)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.Address, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.City)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.City, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.State)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.State, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.ZipCode)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.ZipCode, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.UserId)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.UserId, new { @class = "form-control" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.Password)</div>
+            <div class="col-lg-10">@Html.TextBoxFor(a => a.Password, new { @class = "form-control", type = "Password" })</div>
+        </div><br />
+        <div class="row">
+            <div class="col-lg-2">@Html.LabelFor(a => a.UserCategory)</div>
+            <div class="col-lg-10">@Html.DropDownList("UserCategory", new SelectList(Enum.GetValues(typeof(ChargeBackproject.Models.UserDetails.Category))), "Select User Category", new { @class = "form-control" })</div>
+        </div><br />
+        <input type="submit" value="Register" class="registerbutton" />
+    }
+
+</div>

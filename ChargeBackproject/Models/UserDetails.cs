@@ -4,12 +4,17 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Policy;
 
 namespace ChargeBackproject.Models
 {
     public class UserDetails
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Please Enter First Name")]
         public string FirstName { get; set; }
 
@@ -42,5 +47,21 @@ namespace ChargeBackproject.Models
         [Required(ErrorMessage = "Please Enter ZipCode")]
         public int ZipCode { get; set; }
 
+        [Required(ErrorMessage = "Please Enter UserId")]
+        public string UserId { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Password")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Choose a category")]
+        public Category UserCategory { get; set; }
+
+        public enum Category
+        {
+            Customer,
+            Admin,
+            Employee
+        }
     }
 }

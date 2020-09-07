@@ -6,11 +6,13 @@ using System.Web.Mvc;
 
 namespace ChargeBackproject.Controllers
 {
-    public class RegisterController : Controller
+    [Authorize]
+    public class UserController : Controller
     {
-        // GET: Register
-        public ActionResult Register()
+        // GET: User
+        public ActionResult Index()
         {
+            ViewBag.Message = "Welcome User";
             return View();
         }
     }

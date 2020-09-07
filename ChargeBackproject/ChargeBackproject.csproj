@@ -129,9 +129,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,9 +139,47 @@
     <Compile Include="Migrations\202009041822452_InitialModel.designer.cs">
       <DependentUpon>202009041822452_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009050653376_secondmodel.cs" />
+    <Compile Include="Migrations\202009050653376_secondmodel.designer.cs">
+      <DependentUpon>202009050653376_secondmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009050707068_thirdmodel.cs" />
+    <Compile Include="Migrations\202009050707068_thirdmodel.designer.cs">
+      <DependentUpon>202009050707068_thirdmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009050824558_fourth.cs" />
+    <Compile Include="Migrations\202009050824558_fourth.designer.cs">
+      <DependentUpon>202009050824558_fourth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051000328_fifth.cs" />
+    <Compile Include="Migrations\202009051000328_fifth.designer.cs">
+      <DependentUpon>202009051000328_fifth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051050380_sixth.cs" />
+    <Compile Include="Migrations\202009051050380_sixth.designer.cs">
+      <DependentUpon>202009051050380_sixth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051058317_seventh.cs" />
+    <Compile Include="Migrations\202009051058317_seventh.designer.cs">
+      <DependentUpon>202009051058317_seventh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051113390_eighth.cs" />
+    <Compile Include="Migrations\202009051113390_eighth.designer.cs">
+      <DependentUpon>202009051113390_eighth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009051115142_nineth.cs" />
+    <Compile Include="Migrations\202009051115142_nineth.designer.cs">
+      <DependentUpon>202009051115142_nineth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009060859497_tenth.cs" />
+    <Compile Include="Migrations\202009060859497_tenth.designer.cs">
+      <DependentUpon>202009060859497_tenth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\LoginDetails.cs" />
     <Compile Include="Models\UserDetails.cs" />
     <Compile Include="Models\UserDetailsContext.cs" />
+    <Compile Include="Models\UserRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -276,8 +314,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -288,6 +324,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Welcome.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,6 +347,33 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009041822452_InitialModel.resx">
       <DependentUpon>202009041822452_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009050653376_secondmodel.resx">
+      <DependentUpon>202009050653376_secondmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009050707068_thirdmodel.resx">
+      <DependentUpon>202009050707068_thirdmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009050824558_fourth.resx">
+      <DependentUpon>202009050824558_fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051000328_fifth.resx">
+      <DependentUpon>202009051000328_fifth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051050380_sixth.resx">
+      <DependentUpon>202009051050380_sixth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051058317_seventh.resx">
+      <DependentUpon>202009051058317_seventh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051113390_eighth.resx">
+      <DependentUpon>202009051113390_eighth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051115142_nineth.resx">
+      <DependentUpon>202009051115142_nineth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009060859497_tenth.resx">
+      <DependentUpon>202009060859497_tenth.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
