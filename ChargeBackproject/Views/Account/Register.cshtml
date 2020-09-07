@@ -6,7 +6,7 @@
 
 <div class="jumbotron form-group">
     <h2 class="registerheading" style="color: black;font-size:40px;font-family: 'Times New Roman';">Register</h2>
-    @using (Html.BeginForm("SaveRegisteration", "Account"))
+    @using (Html.BeginForm("Register", "Account"))
     {
         @Html.AntiForgeryToken()
         <div style="color:red;">@Html.ValidationSummary()</div>

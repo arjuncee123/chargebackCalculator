@@ -8,6 +8,7 @@ namespace ChargeBackproject.Models
 {
     public class LoginDetails
     {
+        [Key]
         [Required]
         public string UserName { get; set; }
 

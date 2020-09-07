@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Scrypt;
 
 namespace ChargeBackproject.Controllers
 {
@@ -22,14 +23,26 @@ namespace ChargeBackproject.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveRegisteration(UserDetails registerUserDetails)
+        public ActionResult Register(UserDetails registerUserDetails)
         {
+            ScryptEncoder encoder = new ScryptEncoder();
             if (ModelState.IsValid)
             {
+                    
                     using (var databaseContext = new UserDetailsContext())
                     {
-                        databaseContext.UserDetail.Add(registerUserDetails);
-                        databaseContext.SaveChanges();
+                        var isUserExists = databaseContext.UserDetail.FirstOrDefault(i => i.UserId == registerUserDetails.UserId);
+                        if (isUserExists == null)
+                        {
+                            LoginDetails userCredentials = new LoginDetails();
+                            registerUserDetails.Password = encoder.Encode(registerUserDetails.Password);
+                            databaseContext.UserDetail.Add(registerUserDetails);
+                            databaseContext.SaveChanges();
+                            userCredentials.UserName = registerUserDetails.UserId;
+                            userCredentials.Password = encoder.Encode(registerUserDetails.Password); // encrpyting the password
+                            databaseContext.LoginDetail.Add(userCredentials);
+                            databaseContext.SaveChanges();
+                        }
                     }
                     ModelState.Clear();
                     ViewBag.Message = "New User created successfully";
@@ -69,17 +82,22 @@ namespace ChargeBackproject.Controllers
             }
         }
 
-        public UserDetails IsValidUser(LoginDetails loginDetails)
+        public LoginDetails IsValidUser(LoginDetails loginDetails)
         {
+            ScryptEncoder encoder = new ScryptEncoder();
             using (var databaseContext = new UserDetailsContext())
             {
-                UserDetails users = databaseContext.UserDetail.Where(i => i.UserId.Equals(loginDetails.UserName) && i.Password.Equals(loginDetails.Password)).SingleOrDefault();
+                var users = (from i in databaseContext.LoginDetail
+                    where i.UserName.Equals(loginDetails.UserName)
+                    select i).SingleOrDefault();
                 if (users == null)
                 {
                     return null;
                 }
-                else
+                bool passwordMatching = encoder.Compare(loginDetails.Password, users.Password);
+                if (passwordMatching)
                     return users;
+                return null;
             }
         }
 

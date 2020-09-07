@@ -92,3 +92,5 @@ C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBac
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.eighth.resources
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.nineth.resources
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.tenth.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.userdatatablecreate.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\bin\Scrypt.dll
