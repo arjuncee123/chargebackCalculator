@@ -9,7 +9,6 @@ namespace ChargeBackproject.Models
 {
     public class UserRoles
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }
         

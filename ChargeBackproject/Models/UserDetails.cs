@@ -16,6 +16,7 @@ namespace ChargeBackproject.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Please Enter First Name")]
+        [StringLength(40, MinimumLength = 3)]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Please Enter Last Name")]
@@ -24,6 +25,7 @@ namespace ChargeBackproject.Models
 
         [Required]
         [DataType(DataType.Date)]
+        [DisplayName("Date of Birth in (dd/mm/yyyy)")]
         public DateTime? DateOfBirth { get; set; }
 
 
@@ -32,6 +34,7 @@ namespace ChargeBackproject.Models
 
 
         [DisplayName("Phone Number")]
+        [Required(ErrorMessage = "Please Enter contact number")]
         public string ContactNumber { get; set; }
 
 
@@ -54,14 +57,12 @@ namespace ChargeBackproject.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Choose a category")]
-        public Category UserCategory { get; set; }
+        [NotMapped]
+        [Required(ErrorMessage = "Please re-enter the password")]
+        [DataType(DataType.Password)]
+        [Compare("Password",ErrorMessage = "Password does not match")]
+        public string ConfirmPassword { get; set; }
 
-        public enum Category
-        {
-            Customer,
-            Admin,
-            Employee
-        }
+        public string UserCategory { get; set; }
     }
 }

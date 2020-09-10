@@ -2,27 +2,54 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Scrypt;
+using static System.String;
 
 namespace ChargeBackproject.Controllers
 {
     public class AccountController : Controller
     {
         // GET: Register
+        public static string RoleSelectionFromUser;
         public ActionResult Index()
         {
             return View();
         }
+
+        public ActionResult RoleChoice()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RoleChoice(string roleName)
+        {
+            Role selectedRole = new Role();
+            if (roleName != null)
+            {
+                selectedRole.RoleName = roleName;
+                RoleSelectionFromUser = roleName;
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                ViewBag.Message = "Please select a Role to Continue";
+                return View();
+            }
+        }
+
         public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(UserDetails registerUserDetails)
         {
             ScryptEncoder encoder = new ScryptEncoder();
@@ -35,11 +62,15 @@ namespace ChargeBackproject.Controllers
                         if (isUserExists == null)
                         {
                             LoginDetails userCredentials = new LoginDetails();
-                            registerUserDetails.Password = encoder.Encode(registerUserDetails.Password);
+                            var originalPassword = registerUserDetails.Password;
+                            registerUserDetails.UserCategory = RoleSelectionFromUser;
+                            registerUserDetails.Password = encoder.Encode(originalPassword);
+                            registerUserDetails.ConfirmPassword = registerUserDetails.Password;
                             databaseContext.UserDetail.Add(registerUserDetails);
                             databaseContext.SaveChanges();
+                            userCredentials.RoleOfUser = RoleSelectionFromUser;
                             userCredentials.UserName = registerUserDetails.UserId;
-                            userCredentials.Password = encoder.Encode(registerUserDetails.Password); // encrpyting the password
+                            userCredentials.Password = encoder.Encode(originalPassword);
                             databaseContext.LoginDetail.Add(userCredentials);
                             databaseContext.SaveChanges();
                         }
@@ -59,6 +90,7 @@ namespace ChargeBackproject.Controllers
         }
 
         [HttpPost]
+
         public ActionResult Login(LoginDetails loginDetails)
         {
             if (ModelState.IsValid)
@@ -73,6 +105,7 @@ namespace ChargeBackproject.Controllers
                 else
                 {
                     ModelState.AddModelError("Failure", "Username or password is incorrect.");
+                    ViewBag.Message = "Username or password is incorrect";
                     return View();
                 }
             }
@@ -90,12 +123,14 @@ namespace ChargeBackproject.Controllers
                 var users = (from i in databaseContext.LoginDetail
                     where i.UserName.Equals(loginDetails.UserName)
                     select i).SingleOrDefault();
+                var a = RoleSelectionFromUser;
                 if (users == null)
                 {
                     return null;
                 }
                 bool passwordMatching = encoder.Compare(loginDetails.Password, users.Password);
-                if (passwordMatching)
+                bool isSelectedRoleValid = String.Compare(users.RoleOfUser, RoleSelectionFromUser) == 0;
+                if (passwordMatching && isSelectedRoleValid)
                     return users;
                 return null;
             }
@@ -105,6 +140,12 @@ namespace ChargeBackproject.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
+            Session.Clear();
+            Session.Abandon();
+            Session.RemoveAll();
+            this.Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+            this.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            this.Response.Cache.SetNoStore();
             return RedirectToAction("Login");
         }
     }

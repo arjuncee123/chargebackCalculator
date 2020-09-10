@@ -1426,7 +1426,7 @@ a.text-warning:focus {
   color: #66512c;
 }
 .text-danger {
-  color: #a94442;
+  color: red;
 }
 a.text-danger:hover,
 a.text-danger:focus {
@@ -6888,5 +6888,8 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+.input-validation-error {
+    border: 1px solid red !important;
 }
 /*# sourceMappingURL=bootstrap.css.map */

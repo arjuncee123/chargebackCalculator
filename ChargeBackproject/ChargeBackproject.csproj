@@ -183,8 +183,85 @@
     <Compile Include="Migrations\202009071020304_userdatatablecreate.designer.cs">
       <DependentUpon>202009071020304_userdatatablecreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009081035260_modifyuserdetailtable.cs" />
+    <Compile Include="Migrations\202009081035260_modifyuserdetailtable.designer.cs">
+      <DependentUpon>202009081035260_modifyuserdetailtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081203255_modifynew.cs" />
+    <Compile Include="Migrations\202009081203255_modifynew.designer.cs">
+      <DependentUpon>202009081203255_modifynew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081219174_modifyneww.cs" />
+    <Compile Include="Migrations\202009081219174_modifyneww.designer.cs">
+      <DependentUpon>202009081219174_modifyneww.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081224485_modifynewww.cs" />
+    <Compile Include="Migrations\202009081224485_modifynewww.designer.cs">
+      <DependentUpon>202009081224485_modifynewww.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081230437_modifynewwww.cs" />
+    <Compile Include="Migrations\202009081230437_modifynewwww.designer.cs">
+      <DependentUpon>202009081230437_modifynewwww.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081237259_deleeteconfirmpass.cs" />
+    <Compile Include="Migrations\202009081237259_deleeteconfirmpass.designer.cs">
+      <DependentUpon>202009081237259_deleeteconfirmpass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081359287_addagainconfirm.cs" />
+    <Compile Include="Migrations\202009081359287_addagainconfirm.designer.cs">
+      <DependentUpon>202009081359287_addagainconfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081407233_resetregex.cs" />
+    <Compile Include="Migrations\202009081407233_resetregex.designer.cs">
+      <DependentUpon>202009081407233_resetregex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081416063_newregexupd.cs" />
+    <Compile Include="Migrations\202009081416063_newregexupd.designer.cs">
+      <DependentUpon>202009081416063_newregexupd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081420090_cnfrmpa.cs" />
+    <Compile Include="Migrations\202009081420090_cnfrmpa.designer.cs">
+      <DependentUpon>202009081420090_cnfrmpa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081434541_cnfrmpaaaaa.cs" />
+    <Compile Include="Migrations\202009081434541_cnfrmpaaaaa.designer.cs">
+      <DependentUpon>202009081434541_cnfrmpaaaaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081445406_cnfrmpasdfsdffs.cs" />
+    <Compile Include="Migrations\202009081445406_cnfrmpasdfsdffs.designer.cs">
+      <DependentUpon>202009081445406_cnfrmpasdfsdffs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081500309_dsfsdafdfs.cs" />
+    <Compile Include="Migrations\202009081500309_dsfsdafdfs.designer.cs">
+      <DependentUpon>202009081500309_dsfsdafdfs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081506290_dsfsdafdfsdfdfdsf.cs" />
+    <Compile Include="Migrations\202009081506290_dsfsdafdfsdfdfdsf.designer.cs">
+      <DependentUpon>202009081506290_dsfsdafdfsdfdfdsf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081512443_fdsfsdfsdf.cs" />
+    <Compile Include="Migrations\202009081512443_fdsfsdfsdf.designer.cs">
+      <DependentUpon>202009081512443_fdsfsdfsdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081515320_ertertert.cs" />
+    <Compile Include="Migrations\202009081515320_ertertert.designer.cs">
+      <DependentUpon>202009081515320_ertertert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081605268_ertertert1.cs" />
+    <Compile Include="Migrations\202009081605268_ertertert1.designer.cs">
+      <DependentUpon>202009081605268_ertertert1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009081614123_userroleadd.cs" />
+    <Compile Include="Migrations\202009081614123_userroleadd.designer.cs">
+      <DependentUpon>202009081614123_userroleadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009100948290_confirmpassadded.cs" />
+    <Compile Include="Migrations\202009100948290_confirmpassadded.designer.cs">
+      <DependentUpon>202009100948290_confirmpassadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginDetails.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\UserDetails.cs" />
     <Compile Include="Models\UserDetailsContext.cs" />
     <Compile Include="Models\UserRoles.cs" />
@@ -338,6 +415,7 @@
     <Content Include="Views\Account\Welcome.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Role\SelectRole.cshtml" />
+    <Content Include="Views\Account\RoleChoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -386,6 +464,63 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009071020304_userdatatablecreate.resx">
       <DependentUpon>202009071020304_userdatatablecreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081035260_modifyuserdetailtable.resx">
+      <DependentUpon>202009081035260_modifyuserdetailtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081203255_modifynew.resx">
+      <DependentUpon>202009081203255_modifynew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081219174_modifyneww.resx">
+      <DependentUpon>202009081219174_modifyneww.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081224485_modifynewww.resx">
+      <DependentUpon>202009081224485_modifynewww.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081230437_modifynewwww.resx">
+      <DependentUpon>202009081230437_modifynewwww.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081237259_deleeteconfirmpass.resx">
+      <DependentUpon>202009081237259_deleeteconfirmpass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081359287_addagainconfirm.resx">
+      <DependentUpon>202009081359287_addagainconfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081407233_resetregex.resx">
+      <DependentUpon>202009081407233_resetregex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081416063_newregexupd.resx">
+      <DependentUpon>202009081416063_newregexupd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081420090_cnfrmpa.resx">
+      <DependentUpon>202009081420090_cnfrmpa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081434541_cnfrmpaaaaa.resx">
+      <DependentUpon>202009081434541_cnfrmpaaaaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081445406_cnfrmpasdfsdffs.resx">
+      <DependentUpon>202009081445406_cnfrmpasdfsdffs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081500309_dsfsdafdfs.resx">
+      <DependentUpon>202009081500309_dsfsdafdfs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081506290_dsfsdafdfsdfdfdsf.resx">
+      <DependentUpon>202009081506290_dsfsdafdfsdfdfdsf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081512443_fdsfsdfsdf.resx">
+      <DependentUpon>202009081512443_fdsfsdfsdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081515320_ertertert.resx">
+      <DependentUpon>202009081515320_ertertert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081605268_ertertert1.resx">
+      <DependentUpon>202009081605268_ertertert1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081614123_userroleadd.resx">
+      <DependentUpon>202009081614123_userroleadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009100948290_confirmpassadded.resx">
+      <DependentUpon>202009100948290_confirmpassadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

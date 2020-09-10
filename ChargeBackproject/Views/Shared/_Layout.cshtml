@@ -18,28 +18,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Bank Application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
                     <li>
-
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Change Role", "RoleChoice", "Account")</li>
+                        }
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li>@Html.ActionLink("Details", "Index", "User")</li>
                             <li>@Html.ActionLink("Log Out", "Logout", "Account")</li>
                         }
-                        else
-                        {
-                           @Html.ActionLink("Login", "Login", "Account")
-                        }
-                    </li>
-                    <li>
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            @Html.ActionLink("Register", "Register", "Account")
-                        }
-
                     </li>
                 </ul>
             </div>

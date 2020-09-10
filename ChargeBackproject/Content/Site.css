@@ -90,3 +90,11 @@ body {
     font-size: 20px;
     border-radius: 30px;
 }
+
+.field-validation-error text-danger {
+    color: red;
+}
+
+form-control input-validation-error {
+    border: 1px solid #e80c4d;
+}
