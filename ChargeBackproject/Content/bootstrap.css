@@ -11,7 +11,7 @@ html {
 }
 body {
     margin: 0;
-    background-image: url("https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png");
+    background-image: url("https://designshack.net/wp-content/uploads/tips-for-using-background-textures-in-web-design.jpg");
     background-size: cover;
 }
 article,
@@ -4725,8 +4725,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+    background-color: #384a4f;
+    border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
@@ -4740,7 +4740,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: white;
+    font-size: 16px;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -5096,7 +5097,7 @@ a.badge:focus {
     padding-bottom: 30px;
     margin-bottom: 30px;
     color: inherit;
-    background-color: #fea;
+    background-color: #e8e8e8;
 }
 .jumbotron h1,
 .jumbotron .h1 {
@@ -6891,5 +6892,9 @@ button.close {
 }
 .input-validation-error {
     border: 1px solid red !important;
+}
+a.my-class {
+    color: black;
+    font-size: 12px;
 }
 /*# sourceMappingURL=bootstrap.css.map */

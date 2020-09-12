@@ -16,6 +16,7 @@ namespace ChargeBackproject.Controllers
     {
         // GET: Register
         public static string RoleSelectionFromUser;
+        Random _random = new Random();
         public ActionResult Index()
         {
             return View();
@@ -45,7 +46,23 @@ namespace ChargeBackproject.Controllers
 
         public ActionResult Register()
         {
+            ViewBag.userrole = RoleSelectionFromUser;
             return View();
+        }
+        public int RandomIdGenerator(int min,int max)
+        {
+            return _random.Next(min, max);
+        }
+
+        public string RandomStringGenerator(int c,string s)
+        {
+            string random = "";
+            for(int i=0; i<c;i++)
+            {
+                int a = _random.Next(26);
+                random = random + s.ElementAt(a);
+            }
+            return random;
         }
 
         [HttpPost]
@@ -62,10 +79,31 @@ namespace ChargeBackproject.Controllers
                         if (isUserExists == null)
                         {
                             LoginDetails userCredentials = new LoginDetails();
+                            CustomerDetail customerDetails = new CustomerDetail();
                             var originalPassword = registerUserDetails.Password;
-                            registerUserDetails.UserCategory = RoleSelectionFromUser;
                             registerUserDetails.Password = encoder.Encode(originalPassword);
                             registerUserDetails.ConfirmPassword = registerUserDetails.Password;
+                            if (registerUserDetails.UserCategory == "Customer")
+                            {
+                                customerDetails.FirstName = registerUserDetails.FirstName;
+                                customerDetails.LastName = registerUserDetails.LastName;
+                                customerDetails.DateOfBirth = registerUserDetails.DateOfBirth;
+                                customerDetails.Gender = registerUserDetails.Gender;
+                                customerDetails.ContactNumber = registerUserDetails.ContactNumber;
+                                customerDetails.Address = registerUserDetails.Address;
+                                customerDetails.City = registerUserDetails.City;
+                                customerDetails.State = registerUserDetails.State;
+                                customerDetails.ZipCode = registerUserDetails.ZipCode;
+                                customerDetails.UserId = registerUserDetails.UserId;
+                                customerDetails.Password = registerUserDetails.Password;
+                                customerDetails.CustomerId = RandomIdGenerator(1000, 2000);                             //generating a number between 1000 & 2000
+                                customerDetails.BankAccountNumber = RandomIdGenerator(1000000000, 1999999999);          //generating a number between 1000000000 && 1999999999 for account number
+                                customerDetails.BankAddress = RandomStringGenerator(10, "abcdefghijklmnopqrstuvwxyz");  //generating a string of length 10 for Bank address
+                                customerDetails.AvailableBalance = RandomIdGenerator(10000, 50000);                     //generating a number between 10000 & 50000 for Account balance
+                                customerDetails.BranchName = RandomStringGenerator(5, "abcdefghijklmnopqrstuvwxyz");    //generating a string of length 5 for Branch name
+                                databaseContext.CustomerDetails.Add(customerDetails);
+                                databaseContext.SaveChanges();
+                            }
                             databaseContext.UserDetail.Add(registerUserDetails);
                             databaseContext.SaveChanges();
                             userCredentials.RoleOfUser = RoleSelectionFromUser;
@@ -99,8 +137,21 @@ namespace ChargeBackproject.Controllers
                 if (isValidUser != null)
                 {
                     FormsAuthentication.SetAuthCookie(loginDetails.UserName, false);
-                    ViewBag.Message = "User logged in successfully";
-                    return RedirectToAction("Index");
+                    
+                    switch (RoleSelectionFromUser)
+                    {
+                        case "Customer":
+                            ViewBag.Message = "Customer user logged in successfully";
+                            return RedirectToAction("Index", "Customer");
+                        case "Employee":
+                            ViewBag.Message = "Employee user logged in successfully";
+                            return RedirectToAction("Index", "Employee");
+                        case "Admin":
+                            ViewBag.Message = "Admin user logged in successfully";
+                            return RedirectToAction("Index", "Admin");
+                    }
+
+                    return View();
                 }
                 else
                 {
@@ -143,9 +194,9 @@ namespace ChargeBackproject.Controllers
             Session.Clear();
             Session.Abandon();
             Session.RemoveAll();
-            this.Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
-            this.Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            this.Response.Cache.SetNoStore();
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
             return RedirectToAction("Login");
         }
     }

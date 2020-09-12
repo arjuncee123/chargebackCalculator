@@ -61,6 +61,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -133,6 +134,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -259,9 +263,35 @@
     <Compile Include="Migrations\202009100948290_confirmpassadded.designer.cs">
       <DependentUpon>202009100948290_confirmpassadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009111524313_customertableadded.cs" />
+    <Compile Include="Migrations\202009111524313_customertableadded.designer.cs">
+      <DependentUpon>202009111524313_customertableadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009111530406_newcustomertableadded.cs" />
+    <Compile Include="Migrations\202009111530406_newcustomertableadded.designer.cs">
+      <DependentUpon>202009111530406_newcustomertableadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009121218364_transactiondetailtableadded.cs" />
+    <Compile Include="Migrations\202009121218364_transactiondetailtableadded.designer.cs">
+      <DependentUpon>202009121218364_transactiondetailtableadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009121321284_transactiondetailtableaddedddd.cs" />
+    <Compile Include="Migrations\202009121321284_transactiondetailtableaddedddd.designer.cs">
+      <DependentUpon>202009121321284_transactiondetailtableaddedddd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009121334282_transactiondetailtableaddednew.cs" />
+    <Compile Include="Migrations\202009121334282_transactiondetailtableaddednew.designer.cs">
+      <DependentUpon>202009121334282_transactiondetailtableaddednew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009121342318_latefeeadded.cs" />
+    <Compile Include="Migrations\202009121342318_latefeeadded.designer.cs">
+      <DependentUpon>202009121342318_latefeeadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CustomerDetail.cs" />
     <Compile Include="Models\LoginDetails.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\TransactionDetail.cs" />
     <Compile Include="Models\UserDetails.cs" />
     <Compile Include="Models\UserDetailsContext.cs" />
     <Compile Include="Models\UserRoles.cs" />
@@ -416,6 +446,11 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Role\SelectRole.cshtml" />
     <Content Include="Views\Account\RoleChoice.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Employee\Detail.cshtml" />
+    <Content Include="Views\Employee\Transactions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -521,6 +556,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009100948290_confirmpassadded.resx">
       <DependentUpon>202009100948290_confirmpassadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009111524313_customertableadded.resx">
+      <DependentUpon>202009111524313_customertableadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009111530406_newcustomertableadded.resx">
+      <DependentUpon>202009111530406_newcustomertableadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009121218364_transactiondetailtableadded.resx">
+      <DependentUpon>202009121218364_transactiondetailtableadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009121321284_transactiondetailtableaddedddd.resx">
+      <DependentUpon>202009121321284_transactiondetailtableaddedddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009121334282_transactiondetailtableaddednew.resx">
+      <DependentUpon>202009121334282_transactiondetailtableaddednew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009121342318_latefeeadded.resx">
+      <DependentUpon>202009121342318_latefeeadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

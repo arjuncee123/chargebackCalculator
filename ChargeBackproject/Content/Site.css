@@ -82,7 +82,7 @@ body {
 }
 
 .loginbutton {
-    margin-left: 27px;
+    margin-left: 58px;
     display: flex;
     color: white;
     background-color: dodgerblue;
@@ -97,4 +97,9 @@ body {
 
 form-control input-validation-error {
     border: 1px solid #e80c4d;
+}
+
+a.my-class {
+    color: black;
+    font-size: 12px;
 }

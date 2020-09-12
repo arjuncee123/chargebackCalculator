@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ChargeBackproject.Models.TransactionDetail>
+
+@{
+    ViewBag.Title = "Transactions";
+}
+
+
+
+<div class="jumbotron">
+    <h2>Transactions History</h2> <hr />
+    <table class="table table-bordered" style="overflow-y: scroll; align-content: center; border: 4px solid #1f9ec052;">
+        <tr style="font-size: 20px;">
+            <th>
+                @Html.DisplayNameFor(model => model.Debit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LateFee)
+            </th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr style="font-size: 18px;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Debit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Credit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LateFee)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @style = "color: #333333; font-size: 18px;" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @style = "color: #333333; font-size: 18px;" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @style = "color: #333333; font-size: 18px;" })
+                </td>
+            </tr>
+        }
+    </table>
+    @Html.ActionLink("Back to List", "Index", new { }, new { @style = "color: #333333; margin-left: 10px;font-size: 20px;" })
+</div>

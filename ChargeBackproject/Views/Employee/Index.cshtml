@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ChargeBackproject.Models.CustomerDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" href="~/Content/Site.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/bootstrap.css">
+
+<div class="jumbotron">
+    <h2 class="registerheading" style="color: black; font-size: 32px; margin-left: 361px;">Welcome Employee</h2><br />
+    <div class="row">
+        @using (Html.BeginForm("Index","Employee",FormMethod.Post))
+        {
+            <div class="form-horizontal">
+                <div class="form-group" style="margin-left: 224px;">
+                    @*<label class="col-lg-2 control-label" style="margin-top: 13px;">Enter Customer ID</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" name="searchText" placeholder="Search your text here"  style="border-radius: 46px;"/>
+                        <button class="btn btn-primary" type="submit" style="margin-top: -3px; margin-left: 11px;">Search</button>   
+                    </div>*@
+                    @Html.Label("Search",new { @class = "col-lg-2 control-label", @style = "margin-top: 5px;font-size:18px" })
+                    <div class="col-lg-10">
+                        @Html.TextBox("searchText",null,new { @class = "form-control", @placeholder = "Search your text here" ,@style = "border-radius: 46px;" })
+                        <button class="btn btn-primary" type="submit" style="margin-top: -3px; margin-left: 11px; font-size: 16px;"><span class="glyphicon glyphicon-search" style="margin-right: 5px; font-size: 16px;"></span>Search</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-lg-9" style="margin-left: 27px;width: 1000px;">
+            <table class="table table-bordered" style="overflow-y: scroll; align-content: center; border: 4px solid #1f9ec052;">
+                <tr style="font-size: 20px;">
+                    <th>
+                        @Html.DisplayNameFor(model => model.CustomerId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                        <tr style="font-size: 18px;">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "Detail", new {id = item.CustomerId}, new{ @class="my-class", @style="font-size: 18px;" })
+                            </td>
+                        </tr>
+                }   
+            </table>
+
+        </div>
+    </div>
+</div>

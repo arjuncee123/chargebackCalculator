@@ -64,5 +64,6 @@ namespace ChargeBackproject.Models
         public string ConfirmPassword { get; set; }
 
         public string UserCategory { get; set; }
+
     }
 }

@@ -113,3 +113,9 @@ C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBac
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.ertertert1.resources
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.userroleadd.resources
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.confirmpassadded.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.customertableadded.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.newcustomertableadded.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.transactiondetailtableadded.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.transactiondetailtableaddedddd.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.transactiondetailtableaddednew.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.latefeeadded.resources
