@@ -119,3 +119,7 @@ C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBac
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.transactiondetailtableaddedddd.resources
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.transactiondetailtableaddednew.resources
 C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.latefeeadded.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.complainttableadded.resources
+C:\Users\HP\source\repos\ChargeBackproject\ChargeBackproject\obj\Debug\ChargeBackproject.Migrations.complainttableaddeddd.resources

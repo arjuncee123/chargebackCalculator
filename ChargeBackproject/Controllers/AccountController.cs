@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Scrypt;
 using static System.String;
+using System.Net;
+using System.Security.Principal;
+using System.Web.Configuration;
 
 namespace ChargeBackproject.Controllers
 {
@@ -124,7 +127,7 @@ namespace ChargeBackproject.Controllers
         }
         public ActionResult Login()
         {
-            return View();
+                return View();
         }
 
         [HttpPost]
@@ -187,17 +190,12 @@ namespace ChargeBackproject.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            Session.Clear();
-            Session.Abandon();
-            Session.RemoveAll();
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
-            Response.Cache.SetNoStore();
-            return RedirectToAction("Login");
+            return View("Login");
         }
     }
 }

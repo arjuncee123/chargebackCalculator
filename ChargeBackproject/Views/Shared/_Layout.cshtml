@@ -22,17 +22,15 @@
             </div>
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
-                    <li>
                         @if (!User.Identity.IsAuthenticated)
                         {
                             <li>@Html.ActionLink("Change Role", "RoleChoice", "Account")</li>
                         }
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li>@Html.ActionLink("Details", "Index", "User")</li>
+                            <li>@Html.ActionLink("Home", "Login", "Account")</li>
                             <li>@Html.ActionLink("Log Out", "Logout", "Account")</li>
                         }
-                    </li>
                 </ul>
             </div>
         </div>

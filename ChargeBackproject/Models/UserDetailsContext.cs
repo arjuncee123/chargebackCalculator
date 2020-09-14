@@ -18,5 +18,7 @@ namespace ChargeBackproject.Models
         public DbSet<CustomerDetail> CustomerDetails { get; set; }
 
         public DbSet<TransactionDetail> TransactionDetails { get; set; }
+
+        public DbSet<ComplaintDetail> ComplaintDetails { get; set; }
     }
 }

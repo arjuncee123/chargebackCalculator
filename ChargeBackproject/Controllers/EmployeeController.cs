@@ -29,6 +29,11 @@ namespace ChargeBackproject.Controllers
             return View(users);
         }
 
+        public ActionResult AllChargeback()
+        {
+            var allChargebackDetails = databaseContext.ComplaintDetails.ToList();
+            return View(allChargebackDetails);
+        }
         public ActionResult Detail(int id)
         {
             var users = databaseContext.CustomerDetails.Where(i => i.CustomerId == id).First();
@@ -39,6 +44,12 @@ namespace ChargeBackproject.Controllers
         {
             var users = databaseContext.TransactionDetails.Where(i => i.CustomerId == id).ToList();
             return View(users);
+        }
+
+        public ActionResult ChargeBack(int id)
+        {
+            var chargeBackDetails = databaseContext.ComplaintDetails.Where(i => i.CustomerId == id).ToList();
+                return View(chargeBackDetails);
         }
     }
 }

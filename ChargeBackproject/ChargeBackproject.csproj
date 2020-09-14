@@ -54,6 +54,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Scrypt, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Scrypt.NET.1.3.0\lib\net20\Scrypt.dll</HintPath>
@@ -287,7 +290,16 @@
     <Compile Include="Migrations\202009121342318_latefeeadded.designer.cs">
       <DependentUpon>202009121342318_latefeeadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009131841318_complainttableadded.cs" />
+    <Compile Include="Migrations\202009131841318_complainttableadded.designer.cs">
+      <DependentUpon>202009131841318_complainttableadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009131919401_complainttableaddeddd.cs" />
+    <Compile Include="Migrations\202009131919401_complainttableaddeddd.designer.cs">
+      <DependentUpon>202009131919401_complainttableaddeddd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ComplaintDetail.cs" />
     <Compile Include="Models\CustomerDetail.cs" />
     <Compile Include="Models\LoginDetails.cs" />
     <Compile Include="Models\Role.cs" />
@@ -451,6 +463,9 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Employee\Detail.cshtml" />
     <Content Include="Views\Employee\Transactions.cshtml" />
+    <Content Include="Views\Customer\RegisterComplaint.cshtml" />
+    <Content Include="Views\Employee\ChargeBack.cshtml" />
+    <Content Include="Views\Employee\AllChargeback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -574,6 +589,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009121342318_latefeeadded.resx">
       <DependentUpon>202009121342318_latefeeadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131841318_complainttableadded.resx">
+      <DependentUpon>202009131841318_complainttableadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131919401_complainttableaddeddd.resx">
+      <DependentUpon>202009131919401_complainttableaddeddd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

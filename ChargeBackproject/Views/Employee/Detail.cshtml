@@ -5,9 +5,9 @@
 }
 <div class="jumbotron">
     <div>
-        <h4 style="color: black; font-size: 32px; margin-left: 70px;">Details of @Model.FirstName</h4>
+        <h4 style="color: black; font-size: 32px; margin-left: 155px;">Details of @Model.FirstName</h4>
         <hr />
-        <dl class="dl-horizontal" style="font-size: 18px;">
+        <dl class="dl-horizontal" style="font-size: 18px;margin-left: 110px;">
             <dt>
                 @Html.DisplayNameFor(model => model.FirstName)
             </dt>
@@ -117,7 +117,8 @@
         </dl>
 
         <p>
-            @Html.ActionLink("View transactions", "Transactions", new { id = Model.CustomerId }, new{ @style = "color: black; margin-left: 10px;font-size: 20px;" }) |
+            @Html.ActionLink("View transactions", "Transactions", new { id = Model.CustomerId }, new { @style = "color: black; margin-left: 10px;font-size: 20px;" }) |
+            @Html.ActionLink("ChargeBack Details", "ChargeBack", new { id = Model.CustomerId }, new { @style = "color: black; margin-left: 10px;font-size: 20px;" }) |
             @Html.ActionLink("Back to List", "Index", new { }, new { @style = "color: black; margin-left: 10px;font-size: 20px;" })
         </p>
     </div>

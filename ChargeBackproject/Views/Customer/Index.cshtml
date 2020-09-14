@@ -1,7 +1,58 @@
-﻿
+﻿@model IEnumerable<ChargeBackproject.Models.TransactionDetail>
+
 @{
     ViewBag.Title = "Index";
 }
+<div class="jumbotron">
+    <h2 style="color: black; font-size: 32px; margin-left: 361px;">My transactions</h2><br />
+    <table class="table">
+        <tr style="font-size: 18px;">
 
-<h2 style="color: white;">Customer</h2>
+            <th>
+                @Html.DisplayNameFor(model => model.Debit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LateFee)
+            </th>
+            <th>Actions</th>
+        </tr>
 
+        @foreach (var item in Model)
+        {
+            <tr style="font-size: 18px;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Debit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Credit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LateFee)
+                </td>
+                <td>
+                    @if (((DateTime.Today) - (Convert.ToDateTime(item.PaymentDate))).TotalDays <= 15)
+                    {
+                        @Html.ActionLink("Lodge complaint", "RegisterComplaint", new { id = item.Id }, new { @style = "color: black; margin-left: 10px;font-size: 17px;" })
+
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

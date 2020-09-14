@@ -2,9 +2,11 @@
 @{
     ViewBag.Title = "Login";
 }
-
-
-
+<script type="text/javascript">
+   function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script>
 
 <div class="jumbotron">
     <h2 class="loginheading" style="color: black;font-size: 40px;margin-left: 76px;">Login</h2><br/>
