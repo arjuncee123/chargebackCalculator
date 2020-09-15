@@ -190,12 +190,13 @@ namespace ChargeBackproject.Controllers
             }
         }
 
-        [HttpGet]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return View("Login");
+            Session.Clear();
+            Session.RemoveAll();
+            return View("RoleChoice");
         }
     }
 }

@@ -22,7 +22,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateOfTransaction)
             </th>
-            <th style="width: 180px;">Action</th>
+            <th style="width: 136px;">Action</th>
         </tr>
 
         @foreach (var item in Model)
@@ -44,9 +44,8 @@
                     @Html.DisplayFor(modelItem => item.DateOfTransaction)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @style = "color: #333333; font-size: 16px;" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @style = "color: #333333; font-size: 16px;" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @style = "color: #333333; font-size: 16px;" })
+                    @Html.ActionLink("Agree", "Approve", new { id = item.Id }, new { @style = "color: #333333; font-size: 16px;" }) |
+                    @Html.ActionLink("Reject", "Delete", new { id = item.Id }, new { @style = "color: #333333; font-size: 16px;" })
                 </td>
             </tr>
         }

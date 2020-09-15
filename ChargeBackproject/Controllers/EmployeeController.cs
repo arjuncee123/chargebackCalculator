@@ -51,5 +51,27 @@ namespace ChargeBackproject.Controllers
             var chargeBackDetails = databaseContext.ComplaintDetails.Where(i => i.CustomerId == id).ToList();
                 return View(chargeBackDetails);
         }
+
+        public ActionResult Approve(int id)
+        {
+            var chargeBackApprove = databaseContext.ComplaintDetails.Where(i => i.Id == id).FirstOrDefault();
+            var customerDetailBalance = databaseContext.CustomerDetails.Where(j => j.CustomerId == chargeBackApprove.CustomerId).FirstOrDefault();
+            int amountCalculatedAfterAprrove = customerDetailBalance.AvailableBalance + chargeBackApprove.Amount;
+            customerDetailBalance.AvailableBalance = amountCalculatedAfterAprrove;
+            databaseContext.ComplaintDetails.Remove(chargeBackApprove);
+            databaseContext.SaveChanges();
+            return View();
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var chargeBackApprove = databaseContext.ComplaintDetails.Where(i => i.Id == id).FirstOrDefault();
+            var customerDetailBalance = databaseContext.CustomerDetails.Where(j => j.CustomerId == chargeBackApprove.CustomerId).FirstOrDefault();
+            int amountCalculatedAfterAprrove = customerDetailBalance.AvailableBalance - chargeBackApprove.Amount;
+            customerDetailBalance.AvailableBalance = amountCalculatedAfterAprrove;
+            databaseContext.ComplaintDetails.Remove(chargeBackApprove);
+            databaseContext.SaveChanges();
+            return View();
+        }
     }
 }

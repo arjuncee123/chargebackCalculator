@@ -456,7 +456,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Welcome.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\Role\SelectRole.cshtml" />
     <Content Include="Views\Account\RoleChoice.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
@@ -466,6 +465,9 @@
     <Content Include="Views\Customer\RegisterComplaint.cshtml" />
     <Content Include="Views\Employee\ChargeBack.cshtml" />
     <Content Include="Views\Employee\AllChargeback.cshtml" />
+    <Content Include="Views\Shared\_CustomRole.cshtml" />
+    <Content Include="Views\Employee\Approve.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
