@@ -196,6 +196,9 @@ namespace ChargeBackproject.Controllers
             Session.Abandon();
             Session.Clear();
             Session.RemoveAll();
+            this.Response.Cache.SetExpires(DateTime.UtcNow);
+            this.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            this.Response.Cache.SetNoStore();
             return View("RoleChoice");
         }
     }

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="~/Content/bootstrap.css">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="position: fixed;height:70px;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,7 +21,7 @@
                 </button>
             </div>
             <div class="navbar-right">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="margin-left: 960px; margin-top: -7px;">
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Log Out", "Logout", "Account")</li>
